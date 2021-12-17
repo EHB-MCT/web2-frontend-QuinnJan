@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Frontend</title>
 </head>
@@ -14,13 +14,39 @@
 
     <!-- login -->
 
-    <div class="log">
+    <div id="login" class="log hidden">
         <h1>Login with</h1>
-        <a id="login" class="hidden"
-            href="http://www.strava.com/oauth/authorize?client_id=73183&response_type=code&redirect_uri=http://127.0.0.1:5500/web2-frontend-QuinnJan/index.html&approval_prompt=force&scope=read,activity:read">Strava</a>
+        <img src="/images/placeholder.jpg" alt="placeholder" style="width:100%">
+        <a
+            href="http://www.strava.com/oauth/authorize?client_id=73183&response_type=code&redirect_uri=http://127.0.0.1:5500/docs/index.html&approval_prompt=force&scope=read,activity:read">Strava</a>
     </div>
 
-    <a href="./page.html">Go to design</a>
+    <div id="tracks" class="parentClass">
+        <img src="/images/header.png" alt="walker">
+
+        <div class="childClass child1">
+            <h2>Track 1</h2>
+            <p>position: absolute;</p><br>
+        </div>
+        <div class="childClass child2">
+            <h2>Track 2</h2>
+            <p>position: absolute;</p>
+        </div>
+        <div class="childClass child3">
+            <h2>Track 3</h2>
+            <p>position: absolute;</p>
+        </div>
+        <div class="childClass child4">
+            <h2>Track 4</h2>
+            <p>position: absolute;</p>
+        </div>
+        <div class="childClass child5">
+            <h2>Track 5</h2>
+            <p>position: absolute;</p>
+        </div>
+    </div>
+
+    <script src="../src/script.js"></script>
 
 </body>
 
