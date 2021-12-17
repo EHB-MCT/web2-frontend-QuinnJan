@@ -21,29 +21,23 @@
             href="http://www.strava.com/oauth/authorize?client_id=73183&response_type=code&redirect_uri=http://127.0.0.1:5500/docs/index.html&approval_prompt=force&scope=read,activity:read">Strava</a>
     </div>
 
-    <div id="tracks" class="parentClass">
-        <img src="/images/header.png" alt="walker">
+    track
 
-        <div class="childClass child1">
-            <h2>Track 1</h2>
-            <p>position: absolute;</p><br>
-        </div>
-        <div class="childClass child2">
-            <h2>Track 2</h2>
-            <p>position: absolute;</p>
-        </div>
-        <div class="childClass child3">
-            <h2>Track 3</h2>
-            <p>position: absolute;</p>
-        </div>
-        <div class="childClass child4">
-            <h2>Track 4</h2>
-            <p>position: absolute;</p>
-        </div>
-        <div class="childClass child5">
-            <h2>Track 5</h2>
-            <p>position: absolute;</p>
-        </div>
+    <div id="tracks" class="parentClass">
+        <ol>
+            <li v-for="track in tracks">
+                <p>
+                    track:
+                </p>
+                {{ track.name }} <br>
+                {{ track.distance | readableDistance }} <br>
+                {{ track.timezone }} <br>
+                <textarea v-model="track.note" cols="40" rows="2"></textarea>
+                <button v-on:click="save(track)" type="button">Save</button>
+                {{track.note}}
+            </li>
+        </ol>
+
     </div>
 
     <script src="../src/script.js"></script>

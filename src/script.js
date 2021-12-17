@@ -50,7 +50,14 @@ async function fetchActivities() {
             }
         });
         let result = await response.json();
-        //app.track.push
+        app.tracks = result;
+        // result.forEach(element => {
+        //     app.tracks.push({
+        //         name: element.name,
+        //         distance: element.distance,
+        //         timezone: element.timezone
+        //     })
+        // });
     }
 }
 
@@ -88,6 +95,18 @@ if (
 let app = new Vue({
     el: '#tracks',
     data: {
-        message: "hello world!"
+        tracks: [],
+    },
+    filters: {
+        readableDistance: (value) => {
+            return `${(value/1000).toFixed(1)} km`;
+        }
+    },
+    methods: {
+        save: (track) => {
+            console.log(track);
+        }
+
     }
+
 });
