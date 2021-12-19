@@ -6,9 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+    </style>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Frontend</title>
 </head>
+<header>
+    <img src="../images/header.png" alt="header-img">
+</header>
 
 <body>
 
@@ -21,20 +27,34 @@
             href="http://www.strava.com/oauth/authorize?client_id=73183&response_type=code&redirect_uri=http://127.0.0.1:5500/docs/index.html&approval_prompt=force&scope=read,activity:read">Strava</a>
     </div>
 
-    track
+    <!-- tracks -->
 
     <div id="tracks" class="parentClass">
-        <ol>
-            <li v-for="track in tracks">
-                <p>
-                    track:
-                </p>
-                {{ track.name }} <br>
-                {{ track.distance | readableDistance }} <br>
-                {{ track.timezone }} <br>
-                <textarea v-model="track.note" cols="40" rows="2"></textarea>
-                <button v-on:click="save(track)" type="button">Save</button>
-                {{track.note}}
+        <h1>Lets keep track, to make progress!</h1>
+        <ol id="track-ol">
+            <li v-for="track in tracks" id="track-li">
+                <div id="track-title">
+                    {{ track.name }} <br>
+                    {{ track.distance | readableDistance }}
+                </div>
+                <div id="track-info">
+                    <br>
+                    <p>
+                        Location: {{ track.location_country }}
+                    </p>
+                    <p>
+                        Average Speed: {{ track.max_speed }} km/h
+                    </p>
+                </div>
+                <textarea v-model="track.note" cols="40" rows="20"></textarea>
+                <button id="button-save" v-on:click="save(track)" type="button">Save</button>
+                <button id="button-edit" v-on:click="save(track)" type="button">Edit</button>
+                <button id="button-delete" v-on:click="save(track)" type="button">Delete</button>
+                <div id="tracknote">
+                    <p>
+                        Your notes: {{track.note}}
+                    </p>
+                </div>
             </li>
         </ol>
 
@@ -43,5 +63,8 @@
     <script src="../src/script.js"></script>
 
 </body>
+<footer>
+    <img src="../images/Walker footer.png" alt="footer-img">
+</footer>
 
 </html>

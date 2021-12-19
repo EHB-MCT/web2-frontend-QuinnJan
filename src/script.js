@@ -101,6 +101,7 @@ let app = new Vue({
         readableDistance: (value) => {
             return `${(value/1000).toFixed(1)} km`;
         }
+        
     },
     methods: {
         save: (track) => {
