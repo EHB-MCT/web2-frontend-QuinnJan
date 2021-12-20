@@ -101,13 +101,29 @@ let app = new Vue({
         readableDistance: (value) => {
             return `${(value/1000).toFixed(1)} km`;
         }
-        
+
     },
     methods: {
         save: (track) => {
-            console.log(track);
+            saveNote(track);
         }
-
     }
-
 });
+
+async function saveNote(track) {
+    let authentication = localStorage.getItem('authentication');
+    if (authentication) {
+        let jAuth = JSON.parse(authentication);
+        let url = `http://localhost:5500/note`
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${jAuth.access_token}`
+            },
+            body: {
+                id: track.id,
+                note: track.note
+            }
+        });
+    }
+}
