@@ -10,9 +10,17 @@
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
     </style>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Frontend</title>
 </head>
 <header>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Saved</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+    </nav>
     <img src="../images/header.png" alt="header-img">
 </header>
 
@@ -22,7 +30,6 @@
 
     <div id="login" class="log hidden">
         <h1>Login with</h1>
-        <img src="/images/placeholder.jpg" alt="placeholder" style="width:100%">
         <a
             href="http://www.strava.com/oauth/authorize?client_id=73183&response_type=code&redirect_uri=http://127.0.0.1:5501/docs/index.html&approval_prompt=force&scope=read,activity:read">Strava</a>
     </div>
@@ -34,10 +41,10 @@
         <ol id="track-ol">
             <li v-for="track in tracks" id="track-li">
                 <div id="track-title">
-                    {{ track.name }} <br>
-                    {{ track.distance | readableDistance }}
-                </div>
-                <div id="track-info">
+                    <h2>
+                        {{ track.name }} <br>
+                        {{ track.distance | readableDistance }}
+                    </h2>
                     <br>
                     <p>
                         Location: {{ track.location_country }}
@@ -46,13 +53,26 @@
                         Average Speed: {{ track.max_speed }} km/h
                     </p>
                 </div>
+                <div id="walkingroute-img">
+                    <img src="../images/Walkingroute.gif" alt="walkingroute">
+
+                </div>
                 <textarea v-model="track.note" cols="40" rows="20"></textarea>
-                <button id="button-save" v-on:click="save(track)" type="button">Save</button>
-                <button id="button-edit" v-on:click="save(track)" type="button">Edit</button>
-                <button id="button-delete" v-on:click="save(track)" type="button">Delete</button>
+                <br>
+                <div id="buttons">
+                    <button id="button-save" v-on:click="save(track)" type="button"><span class="material-icons">
+                            save
+                        </span></button>
+                    <button id="button-edit" v-on:click="save(track)" type="button"><span class="material-icons">
+                            edit
+                        </span></button>
+                    <button id="button-delete" v-on:click="save(track)" type="button"><span class="material-icons">
+                            delete
+                        </span></button>
+                </div>
                 <div id="tracknote">
                     <p>
-                        Your notes: {{track.note}}
+                        <strong>Your notes:</strong> {{track.note}}
                     </p>
                 </div>
             </li>

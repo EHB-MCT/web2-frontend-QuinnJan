@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot);
+    src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+        url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+        url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
 .hidden {
     display: none;
 }
@@ -13,40 +25,53 @@
     background-size: 100% 100%;
 }
 
+#navbar ul {
+    list-style-type: none;
+    height: auto;
+    padding: 0;
+    width: 80%;
+    margin-left: 29%;
+    margin-top: 1%;
+}
+
+#navbar li {
+    display: inline;
+    float: left;
+}
+
+#navbar a {
+    font-size: 18px;
+    display: block;
+    padding: 8px;
+    margin: 0 5em;
+    color: black;
+    text-decoration: none;
+}
+
 .log {
     position: relative;
-    width: 100%;
-}
-
-.log img {
-    width: 100%;
-    height: auto;
-}
-
-.log {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #f1f1f1;
-    color: black;
-    font-size: 16px;
-    padding: 16px 30px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.log {
+    background-color: white;
+    margin: auto;
+    width: 30%;
+    height: 20em;
     border: solid 2px black;
+    border-radius: 10px;
+}
+
+.log a {
+    position: absolute;
+    color: black;
+    top: 60%;
+    left: 42%;
+    font-size: 26px;
+    cursor: pointer;
+    text-align: center;
 }
 
 .log h1 {
     position: absolute;
     top: 40%;
-    left: 45%;
+    left: 38%;
     color: black;
     font-size: 26px;
     cursor: pointer;
@@ -57,6 +82,17 @@
     background-color: black;
     color: white;
 }
+
+.log:hover a {
+    background-color: black;
+    color: white;
+}
+
+.log:hover h1 {
+    background-color: black;
+    color: white;
+}
+
 
 header {
     width: 100%;
@@ -85,7 +121,7 @@ ol {
     display: flex;
     border: solid 2px black;
     border-radius: 15px;
-    height: 30%;
+    height: 25%;
     width: 75%;
     align-self: space-between;
     background-color: white;
@@ -100,13 +136,20 @@ li textarea {
     height: 10em;
     min-width: 15em;
     margin: 0 0.5em;
-    margin-left: 3em;
 }
 
-li button {
-    text-transform: uppercase;
-    text-align: center;
-    display: inline;
+li #buttons {
+    margin-right: 4em;
+    cursor: pointer;
+    display: inline-block;
+    width: 4em;
+}
+
+li #buttons button {
+    margin: 0;
+    cursor: pointer;
+    width: 7em;
+    margin-bottom: 0.7em;
 }
 
 li #button-save {
@@ -127,29 +170,40 @@ li #button-edit {
 
 #tracknote {
     height: 10em;
-    max-width: 15em;
+    width: 20em;
 }
 
 #tracknote p {
     margin: 0;
 }
 
-#track-title {
+#track-title h2 {
     height: 2em;
     font-size: 20px;
+    padding-bottom: 2em;
 }
 
-#track-info {
-    padding-top: 7em;
-    width: 20em;
-    font-size: 15px;
+#track-title {
+    margin-right: 2em;
+    min-width: 20em;
+}
+
+#walkingroute-img img {
+    height: 8.7em;
+    width: 10em;
+}
+
+textarea {
+    resize: none;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    max-height: 9.8em;
 }
 
 button {
     display: inline-block;
     padding: 0.46em 1.6em;
     border: 0.15em solid #000000;
-    border-radius: 15px;
     margin: 0 0.2em 0.2em 0;
     border-radius: 0.12em;
     box-sizing: border-box;
@@ -161,13 +215,13 @@ button {
     background-color: #ffffff;
     text-align: center;
     transition: all 0.15s;
+
 }
 
 button:hover {
     text-shadow: 0 0 2em rgba(255, 255, 255, 1);
     color: #ffffff;
     border-color: #000000;
-    border-radius: 5px;
     background-color: #b300aa;
 }
 
