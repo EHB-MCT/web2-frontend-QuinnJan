@@ -20,6 +20,7 @@ async function init() {
     }
     checkLogin();
     fetchActivities();
+    fetchNotes();
 }
 
 function checkLogin() {
@@ -51,13 +52,29 @@ async function fetchActivities() {
         });
         let result = await response.json();
         app.tracks = result;
-        // result.forEach(element => {
-        //     app.tracks.push({
-        //         name: element.name,
-        //         distance: element.distance,
-        //         timezone: element.timezone
-        //     })
-        // });
+    }
+}
+
+async function fetchNotes() {
+    let authentication = localStorage.getItem('authentication');
+    if (authentication) {
+        let jAuth = JSON.parse(authentication);
+        let url = `http://localhost:5500/note`
+        let response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${jAuth.access_token}`,
+            }
+        });
+        let result = await response.json();
+        result.forEach(noteObject => {
+            let track = app.tracks.find((track) => track.id === noteObject.trackid);
+            let index = app.tracks.indexOf(track);
+            if (track) {
+                track.note = noteObject.note;
+                Vue.set(app.tracks, index, track);
+            }
+        });
     }
 }
 
@@ -118,12 +135,13 @@ async function saveNote(track) {
         let response = await fetch(url, {
             method: 'POST',
             headers: {
-                Authorization: `Bearer ${jAuth.access_token}`
+                Authorization: `Bearer ${jAuth.access_token}`,
+                'Content-Type': 'application/json;charset=utf-8'
             },
-            body: {
+            body: JSON.stringify({
                 id: track.id,
                 note: track.note
-            }
+            })
         });
     }
 }
