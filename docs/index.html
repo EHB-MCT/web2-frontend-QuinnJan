@@ -38,6 +38,9 @@
 
     <div id="tracks" class="parentClass">
         <h1>Lets keep track, to make progress!</h1>
+
+        <!-- List of tracks, with vue data -->
+
         <ol id="track-ol">
             <li v-for="track in tracks" id="track-li">
                 <div id="track-title">
@@ -57,6 +60,9 @@
                     <img src="../images/Walkingroute.gif" alt="walkingroute">
 
                 </div>
+
+                <!-- Text area with buttons -->
+
                 <textarea v-model="track.note" cols="40" rows="20"></textarea>
                 <br>
                 <div id="buttons">
@@ -70,6 +76,9 @@
                             delete
                         </span></button>
                 </div>
+
+                <!-- Notes area -->
+
                 <div id="tracknote">
                     <p>
                         <strong>Your notes:</strong> {{track.note}}

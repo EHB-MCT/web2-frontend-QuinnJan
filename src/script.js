@@ -23,6 +23,8 @@ async function init() {
     fetchNotes();
 }
 
+// Check login (if ok --> hide login page)
+
 function checkLogin() {
     let authentication = localStorage.getItem('authentication');
     if (!authentication) {
@@ -39,6 +41,8 @@ function checkLogin() {
     }
 }
 
+// Fetch activities from Strava (user)
+
 async function fetchActivities() {
     let authentication = localStorage.getItem('authentication');
     if (authentication) {
@@ -54,6 +58,8 @@ async function fetchActivities() {
         app.tracks = result;
     }
 }
+
+// Get notes from backend (array of notes)
 
 async function fetchNotes() {
     let authentication = localStorage.getItem('authentication');
@@ -78,7 +84,7 @@ async function fetchNotes() {
     }
 }
 
-// Generate new access token, if old one is expired (moet normaal via backend)
+// Generate new access token, if old one is expired
 
 async function refreshToken() {
     let authentication = localStorage.getItem('authentication');
@@ -109,6 +115,8 @@ if (
     document.addEventListener("DOMContentLoaded", ready);
 }
 
+// Vue application data info
+
 let app = new Vue({
     el: '#tracks',
     data: {
@@ -126,6 +134,8 @@ let app = new Vue({
         }
     }
 });
+
+// Save note with save button to back end
 
 async function saveNote(track) {
     let authentication = localStorage.getItem('authentication');

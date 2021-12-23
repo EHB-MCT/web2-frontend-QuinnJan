@@ -1,5 +1,7 @@
 reference list:
 
+!IMPORTANT! I created a dummy login for STRAVA (in case you don't use STRAVA). This has a couple of routes to show (email: quinnjan50@gmail.com || pass: Dummy!5000) !IMPORTANT!
+
 CSS:
 
 https://freefrontend.com/css-headers-footers/
@@ -12,3 +14,12 @@ https://discuss.codecademy.com/t/position-button-directly-above-another-one/7093
 
 JS:
 
+! https://bijleshuis.be/bijles-geven/gent/ !
+
+https://vuejs.org/v2/guide/
+
+https://vuejs.org/v2/guide/#Declarative-Rendering
+
+HTML:
+
+https://www.w3schools.com/html/
